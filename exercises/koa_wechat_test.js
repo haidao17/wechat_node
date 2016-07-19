@@ -32,4 +32,4 @@ app.use(function *(next) {
 });
 
 app.listen(80);
-console.log('Listening: 80');
+console.log('Listening: ');
