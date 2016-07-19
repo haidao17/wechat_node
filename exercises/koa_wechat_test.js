@@ -14,7 +14,7 @@ var config = {
 var app = new Koa();
 
 app.use(function *(next) {
-  console.log(this.query);
+  console.log('this.query');
 
   var token = config.wechat.token;
   var signature = this.query.signature;
@@ -31,5 +31,5 @@ app.use(function *(next) {
   }
 });
 
-app.listen(80);
-console.log('Listening: ');
+app.listen(1234);
+console.log('Listening: 1234');
