@@ -1,5 +1,10 @@
 'use strict'
 
+var config = require('./config');
+var Wechat = require('./wechat/wechat');
+
+var wechatApi = new Wechat(config.wechat)
+
 
 function *reply(next) {
 
@@ -49,8 +54,14 @@ function *reply(next) {
         }
       ];
         this.body = reply;
+      } else if (message.Content === '4'){
+        var data = yield wechatApi.uploadMaterial('image',__dirname + '/xiaomai.jpg')
       } else {
         this.body = '你说的是：' + message.Content;
+        var reply = {
+          type: 'image',
+          mediaId: data.mediaId
+        }
       }
   }
   yield next;
